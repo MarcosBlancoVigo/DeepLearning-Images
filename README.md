@@ -38,6 +38,8 @@ ship-detection-project/
 ├── README.md                            # Documentación principal
 └── LICENSE                              # Licencia (MIT u otra)
 
+---
+
 ## 📊 Análisis Exploratorio de Datos (EDA)
 
 Se realizó un análisis detallado de las imágenes del dataset:
