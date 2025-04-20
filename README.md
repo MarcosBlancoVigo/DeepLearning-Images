@@ -9,4 +9,89 @@ Este proyecto tiene como objetivo aplicar técnicas de **Análisis Exploratorio 
 ---
 
 ## 📁 Estructura del Proyecto
-hip-detection-project/ │ ├── data/ # Dataset original y procesado │ ├── raw/ # Imágenes originales del dataset │ └── processed/ # Imágenes redimensionadas / augmentadas │ ├── notebooks/ # Notebooks principales del proyecto │ ├── 01_EDA.ipynb # Exploración de datos │ ├── 02_ML_Baseline.ipynb # Pruebas con ML clásico │ ├── 03_DL_Classification.ipynb # Modelos de clasificación con DL │ ├── 04_DL_ObjectDetection.ipynb # Modelos de detección de objetos │ └── 05_ImageToImage.ipynb # Generación de imágenes │ ├── models/ # Modelos entrenados guardados │ ├── utils/ # Funciones auxiliares │ ├── preprocessing.py # Funciones de preprocesamiento │ └── visualizations.py # Funciones de visualización │ ├── requirements.txt # Librerías necesarias └── README.md # Este archivo
+ship-detection-project/
+│
+├── data/                         
+│   ├── raw/                      # Imágenes originales del dataset
+│   └── processed/                # Imágenes redimensionadas / aumentadas
+│
+├── notebooks/                   
+│   ├── 01_EDA.ipynb                      # Análisis exploratorio
+│   ├── 02_ML_Baseline.ipynb             # Machine Learning clásico
+│   ├── 03_DL_Classification.ipynb       # Deep Learning - Clasificación
+│   ├── 04_DL_ObjectDetection.ipynb      # Deep Learning - Detección de objetos
+│   └── 05_ImageToImage.ipynb            # Image-to-Image translation
+│
+├── models/                              # Modelos entrenados guardados
+│   ├── cnn_model.h5
+│   └── yolov5_best.pt
+│
+├── utils/                               
+│   ├── preprocessing.py                 # Funciones para limpiar y procesar datos
+│   └── visualizations.py                # Funciones de graficado y visualización
+│
+├── outputs/                             # Métricas, gráficos, predicciones
+│   ├── classification_reports/
+│   └── detection_results/
+│
+├── requirements.txt                     # Librerías necesarias
+├── README.md                            # Documentación principal
+└── LICENSE                              # Licencia (MIT u otra)
+
+## 📊 Análisis Exploratorio de Datos (EDA)
+
+Se realizó un análisis detallado de las imágenes del dataset:
+
+- **Distribución de tamaños** de imágenes (ancho, alto)
+- **Distribución de clases** (presencia o ausencia de barcos)
+- **Histogramas de color** para entender los valores predominantes
+- Visualización de la **intensidad de píxeles**
+- Análisis de relaciones espaciales y patrones recurrentes
+
+> 📌 Este paso permite definir las transformaciones necesarias para los modelos y comprender posibles problemas como el desbalanceo de clases o tamaños dispares.
+
+---
+
+## 🤖 Machine Learning Clásico
+
+Como baseline, se probaron modelos de clasificación simples con extracción de características tradicionales:
+
+- **Extracción de features** con Histogramas, HOG, y ResNet (feature extractor)
+- Modelos evaluados:
+  - Support Vector Machines (SVM)
+  - Random Forest
+  - Logistic Regression
+
+> 🔍 Estos modelos sirven como línea base para comparar el desempeño de los modelos de Deep Learning posteriores.
+
+---
+
+## 🧠 Deep Learning - Clasificación de Imágenes
+
+Entrenamos modelos de redes neuronales convolucionales (CNN) para clasificar imágenes:
+
+### Modelos:
+
+- **CNN desde cero** con Keras/TensorFlow
+- **Transfer Learning** usando:
+  - ResNet50
+  - MobileNetV2
+  - EfficientNet
+
+### Evaluación:
+
+- Curvas de **accuracy y loss**
+- Evaluación de **overfitting** y regularización
+- Métricas: precisión, recall, F1-score
+
+> 📈 Los modelos preentrenados mostraron mejor generalización y desempeño más robusto.
+
+---
+
+## 🕵️‍♀️ Deep Learning - Detección de Objetos
+
+Implementamos detección de barcos en imágenes usando modelos de object detection:
+
+- **YOLOv5** con PyTorch
+- **TensorFlow Object Detection API**
+- Evaluación con mAP (mean Average Precision)
