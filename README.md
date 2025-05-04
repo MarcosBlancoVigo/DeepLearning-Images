@@ -8,6 +8,24 @@ Este proyecto tiene como objetivo aplicar técnicas de **Análisis Exploratorio 
 
 ---
 
+## 📦 Requisitos
+
+Instala las dependencias necesarias con:
+
+```
+pip install -r requirements.txt
+```
+
+O si usas Anaconda:
+
+```
+conda env create --file requirements.txt
+```
+
+Además, deberás instalar la librería pytorch y torchvision según tu sistema operativo y GPU. Puedes encontrar las instrucciones en la [página oficial de PyTorch](https://pytorch.org/get-started/locally/).
+
+---
+
 ## 📁 Estructura del Proyecto
 
 ```
@@ -75,7 +93,7 @@ Como baseline, se probaron modelos de clasificación simples con extracción de 
 
 Entrenamos modelos de redes neuronales convolucionales (CNN) para clasificar imágenes:
 
-### Modelos:
+### Modelos
 
 - **CNN desde cero** con Keras/TensorFlow  
 - **Transfer Learning** usando:  
@@ -83,7 +101,7 @@ Entrenamos modelos de redes neuronales convolucionales (CNN) para clasificar im�
   - MobileNetV2  
   - EfficientNet  
 
-### Evaluación:
+### Evaluación
 
 - Curvas de **accuracy y loss**  
 - Evaluación de **overfitting** y regularización  
@@ -100,23 +118,5 @@ Implementamos detección de barcos en imágenes usando modelos de object detecti
 - **YOLOv5** con PyTorch  
 - **TensorFlow Object Detection API**  
 - Evaluación con mAP (mean Average Precision)
-
----
-
-## 📦 Requisitos
-
-Instala las dependencias necesarias con:
-
-```
-pip install -r requirements.txt
-```
-
-O si usas Anaconda:
-
-```
-conda env create --file requirements.txt
-```
-
-Además, deberás instalar la librería pytorch y torchvision según tu sistema operativo y GPU. Puedes encontrar las instrucciones en la [página oficial de PyTorch](https://pytorch.org/get-started/locally/).
 
 ---
