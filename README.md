@@ -10,6 +10,8 @@ Este proyecto tiene como objetivo aplicar técnicas de **Análisis Exploratorio 
 
 ## 📦 Requisitos
 
+Crea un entorno con Python 3.12.
+
 Instala las dependencias necesarias con:
 
 ```
