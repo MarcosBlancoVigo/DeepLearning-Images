@@ -1,0 +1,23 @@
+#
+# python 3.12
+#
+
+ipykernel         
+matplotlib
+seaborn
+numpy
+tqdm
+Pillow
+
+# ================================
+# Dependencias para ML clásico
+# ================================
+
+scikit-image
+scikit-learn
+
+# ================================
+# Dependencias para YOLO (Ultralytics)
+# ================================
+ultralytics          # Biblioteca oficial YOLOv8
+

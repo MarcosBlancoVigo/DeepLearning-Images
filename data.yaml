@@ -1,7 +1,0 @@
-train: data/output/train/images  # Path to the training images
-val: data/output/val/images      # Path to the validation images
-test: data/output/test/images    # Path to the test images
-
-nc: 1  # Number of classes
-names:
-  0: 'boat'  # Your class name

@@ -111,4 +111,12 @@ Instala las dependencias necesarias con:
 pip install -r requirements.txt
 ```
 
+O si usas Anaconda:
+
+```
+conda env create --file requirements.txt
+```
+
+Además, deberás instalar la librería pytorch y torchvision según tu sistema operativo y GPU. Puedes encontrar las instrucciones en la [página oficial de PyTorch](https://pytorch.org/get-started/locally/).
+
 ---
