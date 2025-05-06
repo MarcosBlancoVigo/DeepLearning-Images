@@ -1,4 +1,6 @@
-/data/
+/data/MASATI/*
+!/data/MASATI/output/test/
+!/data/MASATI/output/test/**
 /code/yolov8n.pt
 /code/yolo11n.pt
 

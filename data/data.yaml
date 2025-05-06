@@ -1,0 +1,7 @@
+train: MASATI/output/train/images  # Path to the training images
+val: MASATI/output/val/images      # Path to the validation images
+test: MASATI/output/test/images    # Path to the test images
+
+nc: 1  # Number of classes
+names:
+  0: 'boat'  # Your class name
