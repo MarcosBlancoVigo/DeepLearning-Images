@@ -3,8 +3,7 @@
 Este proyecto tiene como objetivo aplicar técnicas de **Análisis Exploratorio de Datos (EDA)**, **Machine Learning clásico**, y **Deep Learning** para resolver el problema de la **detección de barcos en imágenes aéreas**. Utilizamos un dataset proveniente de Kaggle que contiene imágenes aéreas del mar con barcos visibles, con el fin de:
 
 - Clasificar imágenes según presencia de barcos  
-- Detectar la ubicación de los barcos en las imágenes  
-- Explorar técnicas de generación y procesamiento de imágenes  
+- Detectar la ubicación de los barcos en las imágenes   
 
 ---
 
@@ -34,31 +33,24 @@ Además, deberás instalar la librería pytorch y torchvision según tu sistema 
 ship-detection-project/
 │
 ├── data/                         
-│   ├── raw/                      # Imágenes originales del dataset
-│   └── processed/                # Imágenes redimensionadas / aumentadas
+│   ├── MASATI/                      
+│       ├── output
+│           ├── test
+│                ├── images              # Imágenes de test
+│                └── labels              # Etiquetas de las fotos de test
+│           ├── train
+│                ├── images              # Imágenes de train
+│                └── labels              # Etiquetas de las fotos de train
+│           └── val             
+│                ├── images              # Imágenes de validation
+│                └── labels              # Etiquetas de las fotos de validation
 │
-├── notebooks/                   
-│   ├── 01_EDA.ipynb                      # Análisis exploratorio
-│   ├── 02_ML_Baseline.ipynb             # Machine Learning clásico
-│   ├── 03_DL_Classification.ipynb       # Deep Learning - Clasificación
-│   ├── 04_DL_ObjectDetection.ipynb      # Deep Learning - Detección de objetos
-│   └── 05_ImageToImage.ipynb            # Image-to-Image translation
-│
-├── models/                              # Modelos entrenados guardados
-│   ├── cnn_model.h5
-│   └── yolov5_best.pt
-│
-├── utils/                               
-│   ├── preprocessing.py                 # Funciones para limpiar y procesar datos
-│   └── visualizations.py                # Funciones de graficado y visualización
-│
-├── outputs/                             # Métricas, gráficos, predicciones
-│   ├── classification_reports/
-│   └── detection_results/
+├── code/                   
+│   └── Code.ipynb                       # Código completo
 │
 ├── requirements.txt                     # Librerías necesarias
-├── README.md                            # Documentación principal
-└── LICENSE                              # Licencia (MIT u otra)
+├── data.yml                             # Estructura del dataset
+└── README.md                            # Documentación principal
 ```
 
 ---
@@ -69,9 +61,7 @@ Se realizó un análisis detallado de las imágenes del dataset:
 
 - **Distribución de tamaños** de imágenes (ancho, alto)  
 - **Distribución de clases** (presencia o ausencia de barcos)  
-- **Histogramas de color** para entender los valores predominantes  
-- Visualización de la **intensidad de píxeles**  
-- Análisis de relaciones espaciales y patrones recurrentes  
+- **Histogramas de color** para entender los valores predominantes   
 
 > 📌 Este paso permite definir las transformaciones necesarias para los modelos y comprender posibles problemas como el desbalanceo de clases o tamaños dispares.
 
@@ -80,14 +70,11 @@ Se realizó un análisis detallado de las imágenes del dataset:
 ## 🤖 Machine Learning Clásico
 
 Como baseline, se probaron modelos de clasificación simples con extracción de características tradicionales:
-
-- **Extracción de features** con Histogramas, HOG, y ResNet (feature extractor)  
+  
 - Modelos evaluados:  
-  - Support Vector Machines (SVM)  
-  - Random Forest  
-  - Logistic Regression  
+  - Support Vector Machines (SVM)   
 
-> 🔍 Estos modelos sirven como línea base para comparar el desempeño de los modelos de Deep Learning posteriores.
+> 🔍 Este modelo sirve como línea base para comparar el desempeño de los modelos de Deep Learning posteriores.
 
 ---
 
@@ -97,19 +84,13 @@ Entrenamos modelos de redes neuronales convolucionales (CNN) para clasificar im�
 
 ### Modelos
 
-- **CNN desde cero** con Keras/TensorFlow  
-- **Transfer Learning** usando:  
-  - ResNet50  
-  - MobileNetV2  
-  - EfficientNet  
+- **CNN desde cero** con Keras/TensorFlow   
 
 ### Evaluación
 
 - Curvas de **accuracy y loss**  
 - Evaluación de **overfitting** y regularización  
 - Métricas: precisión, recall, F1-score  
-
-> 📈 Los modelos preentrenados mostraron mejor generalización y desempeño más robusto.
 
 ---
 
