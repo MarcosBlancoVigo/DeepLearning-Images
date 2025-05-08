@@ -1,3 +1,10 @@
+## Autores
+
+- Marcos Blanco Vigo  
+- Gonzalo Bobillo Rincón 
+
+
+
 # 🚢 Ship Detection from Aerial Images
 
 Este proyecto tiene como objetivo aplicar técnicas de **Análisis Exploratorio de Datos (EDA)**, **Machine Learning clásico**, y **Deep Learning** para resolver el problema de la **detección de barcos en imágenes aéreas**. Utilizamos un dataset proveniente de Kaggle que contiene imágenes aéreas del mar con barcos visibles, con el fin de:
