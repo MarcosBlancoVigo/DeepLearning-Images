@@ -20,4 +20,3 @@ scikit-learn
 # Dependencias para YOLO (Ultralytics)
 # ================================
 ultralytics          # Biblioteca oficial YOLOv8
-

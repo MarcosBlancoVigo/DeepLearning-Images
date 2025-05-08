@@ -32,8 +32,9 @@ Además, deberás instalar la librería pytorch y torchvision según tu sistema 
 ```
 ship-detection-project/
 │
-├── data/                         
-│   ├── MASATI/                      
+├── data/ 
+|   ├── generation/                       
+│   └── MASATI/                      
 │       ├── output
 │           ├── test
 │                ├── images              # Imágenes de test
@@ -114,4 +115,15 @@ Mediante el uso de la métrica **mAP (mean Average Precision)**, se evaluó el r
 
 El modelo ganador fue el YOLOv8n, que logró un mAP de 0.82 en el conjunto de test, superando ligeramente a YOLOv11n por solamente una centésima de punto.
 
+![ejemplo](ejemplo_yolo.png)
+
 ---
+
+## Generación de imágenes sintéticas
+
+Se ha usado un AutoEncoder para generar imágenes sintéticas. Un AutoEncoder es una red neuronal que aprende a codificar y decodificar datos, permitiendo la generación de nuevas muestras similares a las originales.
+
+El autoencoder ha sido capaz de aprender a generar imágenes del mar, aunque a muy baja resolución (64 x 64 píxeles).  Se puede encontrar un ejemplo del output en la ruta `code/imagenes_generadas`, que junta 16 imágenes.
+
+Un aspecto a mejorar es el pequeño número de imágenes que se usaron para el entrenamiento, ya que el autoencoder necesita un gran número de imágenes para aprender a generar imágenes realistas. En este caso, se usaron 30 imágenes, lo que es muy poco.
+Esto se debe a las limitaciones de tiempo y recursos, pero en un caso real se podría usar un conjunto de datos más grande para obtener mejores resultados.
