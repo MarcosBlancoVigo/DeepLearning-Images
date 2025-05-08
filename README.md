@@ -53,6 +53,8 @@ ship-detection-project/
 └── README.md                            # Documentación principal
 ```
 
+Debido al gran tamaño del dataset, no se incluye en su totalidad en el repositorio. Para replicar el entrenamiento de los modelos, puedes descargarlo desde [Kaggle](https://www.kaggle.com/datasets/louisaberdeen/masati-v2/data) y descomprimirlo en la carpeta `data`.
+
 ---
 
 ## 📊 Análisis Exploratorio de Datos (EDA)
@@ -60,8 +62,8 @@ ship-detection-project/
 Se realizó un análisis detallado de las imágenes del dataset:
 
 - **Distribución de tamaños** de imágenes (ancho, alto)  
-- **Distribución de clases** (presencia o ausencia de barcos)  
-- **Histogramas de color** para entender los valores predominantes   
+- **Distribución de clases** (presencia o ausencia de barcos, así como el número de barcos por imagen)  
+- **Histogramas de color** para entender los valores RGB predominantes
 
 > 📌 Este paso permite definir las transformaciones necesarias para los modelos y comprender posibles problemas como el desbalanceo de clases o tamaños dispares.
 
@@ -71,8 +73,7 @@ Se realizó un análisis detallado de las imágenes del dataset:
 
 Como baseline, se probaron modelos de clasificación simples con extracción de características tradicionales:
   
-- Modelos evaluados:  
-  - Support Vector Machines (SVM)   
+- Modelo evaluado: Support Vector Machine (SVM)  
 
 > 🔍 Este modelo sirve como línea base para comparar el desempeño de los modelos de Deep Learning posteriores.
 
@@ -84,7 +85,7 @@ Entrenamos modelos de redes neuronales convolucionales (CNN) para clasificar im�
 
 ### Modelos
 
-- **CNN desde cero** con Keras/TensorFlow   
+- **CNN desde cero** con Keras/TensorFlow
 
 ### Evaluación
 
@@ -98,8 +99,19 @@ Entrenamos modelos de redes neuronales convolucionales (CNN) para clasificar im�
 
 Implementamos detección de barcos en imágenes usando modelos de object detection:
 
-- **YOLOv5** con PyTorch  
-- **TensorFlow Object Detection API**  
-- Evaluación con mAP (mean Average Precision)
+- **YOLOv8 y YOLOv11** con PyTorch
+
+Se utilizaron los modelos de tamaño nano (el más pequeño dentro de la familia YOLO), para optimizar el rendimiento y la velocidad de inferencia. Estos modelos son ideales para tareas de detección de objetos en tiempo real.
+
+### Fine-tuning
+
+- Ajuste de hiperparámetros y técnicas de **data augmentation** para mejorar el rendimiento del modelo.
+- Implementación de **transfer learning** para aprovechar modelos YOLO preentrenados.
+
+### Evaluación
+
+Mediante el uso de la métrica **mAP (mean Average Precision)**, se evaluó el rendimiento de los modelos en el conjunto de test. 
+
+El modelo ganador fue el YOLOv8n, que logró un mAP de 0.82 en el conjunto de test, superando ligeramente a YOLOv11n por solamente una centésima de punto.
 
 ---
